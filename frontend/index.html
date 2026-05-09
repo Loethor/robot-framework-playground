@@ -1,61 +1,21 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Book Library</title>
-    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
     <h1>Book Library</h1>
 
-    <!-- Add Book Section -->
-    <div class="section">
-        <h2>Add Book</h2>
-        <div class="form-group">
-            <input type="text" id="book-input" placeholder="Enter book title">
-            <button id="add-button">Add Book</button>
-        </div>
-    </div>
+    <input id="title" type="text">
+    <button onclick="addBook()">Add</button>
 
-    <!-- Borrow Book Section -->
-    <div class="section">
-        <h2>Borrow Book</h2>
-        <div class="form-group">
-            <input type="text" id="borrow-book-input" placeholder="Book title">
-            <input type="text" id="borrow-user-input" placeholder="Your name">
-            <button id="borrow-button">Borrow</button>
-        </div>
-    </div>
+    <ul id="books"></ul>
 
-    <!-- Return Book Section -->
-    <div class="section">
-        <h2>Return Book</h2>
-        <div class="form-group">
-            <input type="text" id="return-book-input" placeholder="Book title">
-            <button id="return-button">Return</button>
-        </div>
-    </div>
+    <script src="/static/app.js"></script>
 
-    <!-- Remove Book Section -->
-    <div class="section">
-        <h2>Remove Book</h2>
-        <div class="form-group">
-            <input type="text" id="remove-book-input" placeholder="Book title">
-            <button id="remove-button">Remove</button>
-        </div>
-    </div>
-
-    <!-- Books List -->
-    <div class="section">
-        <h2>Books</h2>
-        <ul id="book-list"></ul>
-    </div>
-
-    <script src="app.js"></script>
 </body>
 
 </html>
