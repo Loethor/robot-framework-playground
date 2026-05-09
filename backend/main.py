@@ -1,10 +1,14 @@
 from fastapi import FastAPI
 from fastapi.staticfiles import StaticFiles
-from fastapi.responses import FileResponse
+from fastapi import HTTPException
 
-from book_service import get_books, add_book
+from book_service import get_books, add_book, clear_library
+import os
 
 app = FastAPI()
+
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+FRONTEND_DIR = os.path.join(BASE_DIR, "../frontend")
 
 
 @app.get("/books")
@@ -13,14 +17,21 @@ def books():
 
 
 @app.post("/books/{title}")
-def add(title: str):
-    success = add_book(title)
-    return {"success": success}
+def create_book(title: str):
+    result = add_book(title)
+
+    if not result["success"]:
+        if result["reason"] == "empty_title":
+            raise HTTPException(status_code=400, detail=result)
+        if result["reason"] == "already_exists":
+            raise HTTPException(status_code=409, detail=result)
+
+    return result
 
 
-@app.get("/")
-def root():
-    return FileResponse("../frontend/index.html")
+@app.delete("/books")
+def clear():
+    return clear_library()
 
 
-app.mount("/static", StaticFiles(directory="../frontend"), name="static")
+app.mount("/static", StaticFiles(directory=FRONTEND_DIR), name="static")

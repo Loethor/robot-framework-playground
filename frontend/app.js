@@ -12,7 +12,6 @@ async function loadBooks() {
     }
 }
 
-
 async function addBook() {
     const input = document.getElementById("title")
 
@@ -25,5 +24,13 @@ async function addBook() {
     loadBooks()
 }
 
+
+async function clearLibrary() {
+    await fetch("/books", {
+        method: "DELETE"
+    })
+
+    loadBooks()
+}
 
 loadBooks()
