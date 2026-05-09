@@ -2,7 +2,7 @@ from fastapi import FastAPI
 from fastapi.staticfiles import StaticFiles
 from fastapi.responses import FileResponse
 
-from library import add_book, get_books
+from book_service import get_books, add_book
 
 app = FastAPI()
 
