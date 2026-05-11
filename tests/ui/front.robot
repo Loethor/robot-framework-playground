@@ -28,7 +28,7 @@ Add Book Via UI
     Input Text    ${INPUT}    Dune
     Click Button    ${ADD_BUTTON}
 
-    Wait Until Page Contains    Dune
+    Wait Until Page Contains    Dune    timeout=3s
     Page Should Contain    Dune
 
 Clear Library Via UI
@@ -40,11 +40,11 @@ Clear Library Via UI
     Input Text    ${INPUT}    Dune
     Click Button    ${ADD_BUTTON}
 
-    Wait Until Page Contains    Dune
+    Wait Until Page Contains    Dune    timeout=3s
 
     Click Button    ${RESET_BUTTON}
 
-    Wait Until Page Does Not Contain    Dune
+    Wait Until Page Does Not Contain    Dune    timeout=3s
     Page Should Not Contain    Dune
 
 
@@ -57,5 +57,7 @@ Open Browser To Library
 Clear UI State
     [Documentation]    Ensures UI is reset between tests (clears library if needed).
     Go To    ${BASE_URL}
-    Click Button    ${RESET_BUTTON}
+
+    Run Keyword And Ignore Error    Click Button    ${RESET_BUTTON}
+
     Sleep    0.2s
