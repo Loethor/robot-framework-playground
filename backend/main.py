@@ -3,7 +3,7 @@ from fastapi.staticfiles import StaticFiles
 from fastapi.responses import FileResponse
 from fastapi import HTTPException
 
-from backend.book_service import get_books, add_book, borrow_book, clear_library
+from book_service import get_books, add_book, borrow_book, clear_library
 
 import os
 
