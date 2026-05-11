@@ -19,6 +19,7 @@ STATUS_TO_HTTP = {
     "empty_person_name": 400,
     "not_found": 404,
     "already_borrowed": 409,
+    "already_exists": 409,
 }
 
 

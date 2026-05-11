@@ -86,7 +86,7 @@ Borrow Book Successfully
     Should Be Equal As Integers    ${response.status_code}    200
     Should Be Equal    ${response.json()["status"]}    success
 
-    ${books}=    GET On Session    api    /books
+    ${response}=    GET On Session    api    /books
     VAR    ${data}=    ${response.json()["data"]}
 
     Should Be Equal    ${data["Dune"]}    alice
@@ -122,7 +122,7 @@ Borrow Empty User Fails
 
     POST On Session    api    /books/Dune
 
-    ${response}=    POST On Session    api    /borrow/Dune/    expected_status=400
+    ${response}=    POST On Session    api    /borrow/Dune/%20    expected_status=400
 
     Should Be Equal As Integers    ${response.status_code}    400
 

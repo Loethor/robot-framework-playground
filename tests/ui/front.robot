@@ -15,7 +15,6 @@ ${BROWSER}          Chrome
 ${INPUT}            id:title
 ${ADD_BUTTON}       id:add-button
 ${RESET_BUTTON}     id:reset-button
-${BOOK_LIST}        id:books
 
 
 *** Test Cases ***
